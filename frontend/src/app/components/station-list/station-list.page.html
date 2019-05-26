@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Lista de Estaciones</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="limiter">
+    <div class="container-login100">
+      <div class="wrap-login100 p-l-20 p-r-20 p-t-20 p-b-20">
+        <br>
+        <!--Titol principal-->
+        <span class="login100-form-title">
+		Lista de Estaciones
+        </span>
+        <br>
+        <ion-searchbar
+          [(ngModel)]="searchTerm"
+          (ionChange)="filterItems()"
+        ></ion-searchbar>
+        <br>
+        <!--Si la variable llista es diferent a Null, mostrem els titols de les columnes-->
+        <ion-list-header *ngIf="llista" >
+          <ion-label>Nombre</ion-label>
+          <ion-label>Estado</ion-label>
+          <ion-label>Descripción</ion-label>
+          <ion-label></ion-label>
+          <ion-label></ion-label>
+        </ion-list-header>
+        <ion-list *ngFor="let element of llista">
+          <ion-item>
+            <ion-label>{{element.name}}</ion-label>
+            <ion-label>{{element.state}}</ion-label>
+            <ion-label>{{element.description}}</ion-label>
+            <ion-button class="list-buttons" color="primary" (click)="botoLlista(element._id, element.name)" >
+              <ion-label style="padding-left:7px">Obtener más Información</ion-label>
+              <ion-icon slot="icon-only" name="information-circle-outline"></ion-icon>
+            </ion-button>
+          </ion-item>
+        </ion-list>
+        <br>
+        <div class="container-login100-form-btn">
+          <div class="wrap-login100-form-btn">
+            <div class="login100-form-bgbtn"></div>
+            <ion-button color="primary" (click)="order()"  expand="block">Order Alphabetically Stations</ion-button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ion-fab vertical="bottom" horizontal="center" slot="fixed" (click)="refresh()">
+      <ion-fab-button>
+        <ion-icon name="refresh-circle"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+
+    <!--===============================================================================================-->
+    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/bootstrap/js/popper.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/daterangepicker/moment.min.js"></script>
+    <script src="vendor/daterangepicker/daterangepicker.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/countdowntime/countdowntime.js"></script>
+    <!--===============================================================================================-->
+  </div>
+</ion-content>
+

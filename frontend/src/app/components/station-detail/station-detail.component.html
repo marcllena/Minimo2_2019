@@ -1,0 +1,92 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Station Detail</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="station-list"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="limiter">
+    <div class="container-login100">
+      <div class="wrap-login100 p-l-20 p-r-20 p-t-20 p-b-20">
+        <br>
+        <!--Titol principal-->
+        <span class="login100-form-title">
+          {{stationName}} Current Bikes:
+        </span>
+        <br>
+        <ion-list-header *ngIf="bikesStation" >
+          <ion-label>Bike</ion-label>
+          <ion-label>Kms</ion-label>
+          <ion-label>Description</ion-label>
+          <ion-label></ion-label>
+          <ion-label></ion-label>
+          <ion-label></ion-label>
+        </ion-list-header>
+        <div *ngIf="bikesStation">
+          <ion-list *ngFor="let bike of bikesStation.bikes">
+            <ion-item>
+              <ion-label>{{bike.name}}</ion-label>
+              <ion-label>{{bike.kms}}</ion-label>
+              <ion-label>{{bike.description}}</ion-label>
+              <ion-label></ion-label>
+              <ion-button class="list-buttons1" color="danger" (click)="botoDesAsignar(bike._id)" >
+                <ion-label style="padding-left:7px">Desasignar de la Estacion</ion-label>
+                <ion-icon slot="icon-only" name="remove-circle-outline"></ion-icon>
+              </ion-button>
+            </ion-item>
+          </ion-list>
+        </div>
+        <ion-label *ngIf="bikesStation==false">No hay ninguna bici asociada a la estación: {{stationName}}</ion-label>
+        <br>
+        <br>
+        <span class="login100-form-title">
+          Bicis sin asignar:
+        </span>
+        <br>
+        <ion-list-header *ngIf="unnasignedBikes" >
+          <ion-label>Bike</ion-label>
+          <ion-label>Kms</ion-label>
+          <ion-label>Description</ion-label>
+          <ion-label></ion-label>
+          <ion-label></ion-label>
+          <ion-label></ion-label>
+        </ion-list-header>
+        <div *ngIf="unnasignedBikes">
+          <ion-list *ngFor="let bike of unnasignedBikes">
+            <ion-item>
+              <ion-label>{{bike.name}}</ion-label>
+              <ion-label>{{bike.kms}}</ion-label>
+              <ion-label>{{bike.description}}</ion-label>
+              <ion-button class="list-buttons2"  color="success"(click)="botoAsignar(bike._id)" >
+                <ion-label style="padding-left:7px" >Asignar a la Estacion</ion-label>
+                <ion-icon slot="icon-only" name="add-circle-outline"></ion-icon>
+              </ion-button>
+            </ion-item>
+          </ion-list>
+        </div>
+        <ion-label *ngIf="unnasignedBikes==false">No hay ninguna bici sin asignar.</ion-label>
+        <br>
+      </div>
+    </div>
+
+    <!--===============================================================================================-->
+    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/bootstrap/js/popper.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/daterangepicker/moment.min.js"></script>
+    <script src="vendor/daterangepicker/daterangepicker.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/countdowntime/countdowntime.js"></script>
+    <!--===============================================================================================-->
+  </div>
+</ion-content>
+

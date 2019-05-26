@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Lista de Bicis</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="limiter">
+    <div class="container-login100">
+      <div class="wrap-login100 p-l-20 p-r-20 p-t-20 p-b-20">
+        <br>
+        <!--Titol principal-->
+        <span class="login100-form-title">
+		Lista de Bicis
+        </span>
+        <br>
+        <!--Si la variable llista es diferent a Null, mostrem els titols de les columnes-->
+        <ion-list-header *ngIf="llista" >
+          <ion-label>Bike</ion-label>
+          <ion-label>Kms</ion-label>
+          <ion-label>Description</ion-label>
+          <ion-label>Assigned</ion-label>
+          <ion-label></ion-label>
+        </ion-list-header>
+          <ion-list *ngFor="let bike of llista">
+            <ion-item>
+              <ion-label>{{bike.name}}</ion-label>
+              <ion-label>{{bike.kms}}</ion-label>
+              <ion-label>{{bike.description}}</ion-label>
+              <ion-label>{{bike.assigned}}</ion-label>
+            </ion-item>
+          </ion-list>
+        <br>
+        <div class="container-login100-form-btn">
+          <div class="wrap-login100-form-btn">
+            <div class="login100-form-bgbtn"></div>
+            <ion-button color="primary" (click)="order()"  expand="block">Order Bikes by KMs</ion-button>
+          </div>
+        </div>
+        <br>
+        </div>
+    </div>
+    <ion-fab vertical="bottom" horizontal="center" slot="fixed" (click)="refresh()">
+      <ion-fab-button>
+        <ion-icon name="refresh-circle"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+
+    <!--===============================================================================================-->
+    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/bootstrap/js/popper.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/daterangepicker/moment.min.js"></script>
+    <script src="vendor/daterangepicker/daterangepicker.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/countdowntime/countdowntime.js"></script>
+    <!--===============================================================================================-->
+  </div>
+</ion-content>
+
