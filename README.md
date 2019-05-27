@@ -1,12 +1,7 @@
-# Primer Minim d'EA
+# Segon Minim d'EA
 
 This is a project based on MEAN stack, including a BackEnd using node.js mongoose and express and 
-a FrontEnd based on Angular.
-
-Per afagir una bici de mostrar i una estació podem fer:
-http://localhost:3001/api/afagirMostra
-http://localhost:3001/api/afagirMostra2
-
+a FrontEnd based on Ionic.
 
 ---
 
